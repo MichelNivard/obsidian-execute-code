@@ -38,9 +38,9 @@ export default class RExecutor extends ReplExecutor {
 	
 	wrapCode(code: string, finishSigil: string): string {		
 		return `tryCatch({
-			cat(sprintf("%s", 
+			 
 				eval(parse(text = ${JSON.stringify(code)} ))
-			))
+			
 		},
 		error = function(e){
 			cat(sprintf("%s", e), file=stderr())
