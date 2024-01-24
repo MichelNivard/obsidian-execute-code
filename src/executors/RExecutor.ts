@@ -40,7 +40,7 @@ export default class RExecutor extends ReplExecutor {
 		return `tryCatch({
 			 
 				eval(parse(text = ${JSON.stringify(code)} ))
-				cat("fine?")
+			
 	
 			
 		},
