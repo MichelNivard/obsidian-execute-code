@@ -39,7 +39,7 @@ export default class RExecutor extends ReplExecutor {
 	wrapCode(code: string, finishSigil: string): string {		
 		return `tryCatch({
 			 
-				sprintf("%s",eval(parse(text = ${JSON.stringify(code)} )))
+				eval(parse(text = ${JSON.stringify(code)} ))
 	
 			
 		},
