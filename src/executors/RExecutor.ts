@@ -50,7 +50,7 @@ export default class RExecutor extends ReplExecutor {
 		finally = {
 			cat(${JSON.stringify(finishSigil)});
 			flush.console()
-		})` +
+		})`.replace(/\r?\n/g, "") +
 			"\n";
 	}
 	
