@@ -37,16 +37,31 @@ export default class RExecutor extends ReplExecutor {
 	}
 	
 	wrapCode(code: string, finishSigil: string): string {		
-		return `tryCatch({
-			 
-				eval(parse(text = ${JSON.stringify(code)} ))
-			
-	
-			
-		},
-		error = function(e){
-			cat(sprintf("%s", e), file=stderr())
-		}, 
+		return `tryCatch({ 
+
+ak <- evaluate::evaluate( ${JSON.stringify(code)} )
+
+what <- lapply(ak , class)  
+
+out <- c("")
+
+for(i in 1:length(ak)){
+  if(what[[i]][1]  == "character"){
+    out <- paste0(out,ak[[i]])
+  }
+  if(what[[i]][1] == "rlang_message"){
+
+    out <- paste0(ak[[i]],out)
+  }
+  
+}
+
+print(out)
+
+
+},error = function(e){
+  cat(sprintf("%s", e), file=stderr())
+}, 
 		finally = {
 			cat(${JSON.stringify(finishSigil)});
 			flush.console()
