@@ -43,7 +43,7 @@ ak <- evaluate::evaluate( ${JSON.stringify(code)} )
 
 what <- lapply(ak , class)  
 
-out <- c("\${TOGGLE_HTML_SIGIL}")
+out <- c("Is this working out for me?")
 
 for(i in 1:length(ak)){
   if(what[[i]][1]  == "character"){
