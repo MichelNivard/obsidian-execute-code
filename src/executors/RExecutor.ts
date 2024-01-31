@@ -58,7 +58,7 @@ for(i in 1:length(ak)){
    png(tempFile)
    replayPlot(ak[[i]])
    dev.off()
-   out <- paste0(out,paste0('\${TOGGLE_HTML_SIGIL}<img src="file:///',tempFile,'}" align="center">\${TOGGLE_HTML_SIGIL}'))
+   out <- paste0(out,paste0('${TOGGLE_HTML_SIGIL}<img src="file:///',tempFile,'}" align="center">${TOGGLE_HTML_SIGIL}'))
    };
 
 };
