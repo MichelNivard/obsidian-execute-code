@@ -33,7 +33,7 @@ export default class RExecutor extends ReplExecutor {
 	 */
 	async setup() {
 		console.log("setup");
-		//this.process.stdin.write("\n");
+		this.process.stdin.write("\n");
 	}
 	
 	wrapCode(code: string, finishSigil: string): string {		
