@@ -43,7 +43,7 @@ ak <- evaluate::evaluate( ${JSON.stringify(code)} );
 
 what <- lapply(ak , class);
 
-out <- c("Is this working out for me?");
+out <- c("");
 
 for(i in 1:length(ak)){
   if(what[[i]][1]  == "character"){
@@ -58,7 +58,7 @@ for(i in 1:length(ak)){
    png(tempFile)
    replayPlot(ak[[i]])
    dev.off()
-   out <- paste0(out,paste0('${TOGGLE_HTML_SIGIL}<img src="file:///',tempFile,'}" align="center">${TOGGLE_HTML_SIGIL}'))
+   # out <- paste0(out,paste0('${TOGGLE_HTML_SIGIL}<img src="file:///',tempFile,'}" align="center">${TOGGLE_HTML_SIGIL}'))
    };
 
 };
