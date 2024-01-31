@@ -54,10 +54,11 @@ for(i in 1:length(ak)){
     out <- paste0(ak[[i]],out)
   };
   if(what[[i]][1] == "recordedplot"){
-   tempFile = tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".png")
-   png(tempFile);replayPlot(ak[[i]]); dev.off(); 
+   tempFile <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".png")
+   png(tempFile)
+   replayPlot(ak[[i]])
+   dev.off()
    out <- paste0(out,paste0('\${TOGGLE_HTML_SIGIL}<img src="file:///',tempFile,'}" align="center">\${TOGGLE_HTML_SIGIL}'))
-
    };
 
 };
